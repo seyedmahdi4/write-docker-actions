@@ -1,18 +1,14 @@
-name: Docker Actions
+name: "Docker Actions"
 
-on:
-  pull_request:
-    types: [labeled]
+on: [push]
 
 jobs:
   action:
-    runs-on: ubuntu-latest
-
+    runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v1
 
-      - name: hello-action
+      - name: "hello-action"
         uses: ./.github/actions/hello-world
-
-      - name: meow
-        uses: ./.github/actions/cat-facts
+        with:
+          firstGreeting: "Learning Lab User"
